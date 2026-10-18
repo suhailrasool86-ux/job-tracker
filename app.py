@@ -4,6 +4,23 @@ from datetime import date
 
 import streamlit as st
 
+st.set_page_config(page_title="Job Tracker", page_icon="💼")
+
+st.markdown("""
+<style>
+.stApp {
+    background: linear-gradient(-45deg, #1e3c72, #2a5298, #6a3093, #a044ff);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+}
+@keyframes gradient {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+</style>
+""", unsafe_allow_html=True)
+
 FILE = "applications.csv"
 FIELDS = ["company", "role", "status", "date"]
 STATUSES = ["Applied", "Interview", "Rejected", "Offer"]
@@ -89,3 +106,5 @@ if not found:
 # --- All applications ---
 st.subheader("All applications")
 st.dataframe(applications)
+st.divider()
+st.caption("Designed by Suhail Rasool")
